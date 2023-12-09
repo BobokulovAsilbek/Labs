@@ -1,0 +1,112 @@
+#include<bits/stdc++.h>
+using namespace std;
+void displayPattern(int n){
+    while(n--){
+        for(int i = 0; i <= n; i++) cout << '*'; cout << '\n';
+    }
+}
+int getType(int n){
+    int cnt = 1;
+    while(n /= 10) cnt ++;
+    return cnt & 1;
+}
+///problem 3
+int countDigitOccurrences(int num){
+    int a[10]; num *= 10;
+    while(num /= 10) a[num % 10] ++;
+    for(int i = 0; i < 10; i++) cout << "The frequency of " << i << " = " << a[i] << '\n';
+}
+void transforms(int n){
+    string s[] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    string ans = "";
+    while(n){
+        ans = s[n % 10] + " " + ans;
+        n /= 10;
+    }
+    cout << ans;
+}
+///problem 6
+///problem 7
+///problem 8
+int octal2Dec(const int& octalNumber){
+    int oct = octalNumber;
+    int cnt = 1, sum = 0;
+    while(oct){
+        sum += (oct % 10) * cnt;
+        cnt *= 8;
+        oct /= 10;
+    }
+    return sum;
+}
+void revChar(char& c){
+    c += (c < 'a' ? 32 : -32);
+}
+double avgOfEvenPlaces(int n){
+    double ans = 0, cnt = 0, rev = 0;
+    while(n){
+        rev *= 10; rev += n % 10; n /= 10;
+        cnt ++;
+    }
+    while(rev){
+        rev /= 10;
+        ans += int(rev) % 10;
+        rev /= 10;
+    }
+    return ans / double(int(cnt) / 2) ;
+}
+double predict(double n){
+    double lastGuess = n + 1, nextGuess = n, epsilon = 0.0001;
+    while (lastGuess - nextGuess > epsilon) {
+        lastGuess = nextGuess;
+        nextGuess = (lastGuess + n / lastGuess) / 2;
+    }
+    return nextGuess;
+}
+bool isKaprekar(int n){
+    int p = n * n, cnt = 1, mod = 10;
+    while(p /= 10) cnt ++; p = n * n;
+    for(int i = 0; i < cnt; i ++){
+        if(p / mod + p % mod == n) return 1;
+        mod *= 10;
+    }
+    return 0;
+}
+int revers(int n){
+    int p = 0;
+    while(n){
+        p *= 10; p += n % 10; n /= 10;
+    }
+    return p;
+}
+bool isLychrel(int n){
+    int m = revers(n);
+    return revers(m + n) != m + n;
+}
+int countDigits(int num){
+    int cnt = 1;
+    while(num /= 10) cnt ++;
+    return cnt;
+}
+int isNarcissistic(int num){
+    int m = num, sum = 0, cnt = countDigits(num);
+    while(num){
+        sum += pow(num % 10, cnt);
+        num /= 10;
+    }
+    return sum == m;
+}
+int cent(int n){
+    return (n - 1) / 100 + 1;
+}
+void minuts(){
+    int h1, h2, m1, m2; cin >> h1 >> m1 >> h2 >> m2;
+    cout << 60 * (h2-h1) - (m1 - m2);
+}
+int days(int y, int m, int d) { /* Rata Die day one is 0001-01-01 */
+    if (m < 3) y--, m += 12;
+    return 365*y + y/4 - y/100 + y/400 + (153*m - 457)/5 + d - 306;
+}
+int main()
+{
+    days();
+}
