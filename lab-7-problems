@@ -25,7 +25,16 @@ void transforms(int n){
     }
     cout << ans;
 }
-///problem 6
+void main6()
+{
+    double a, b, c; cin >> a >> b >> c;
+    double d = b * b - 4 * a * c;
+    if(d < 0) cout << "Has no solution";
+    else if(d == 0) sqrt(cout << -b/(2*a));
+    else{
+        cout << sqrt((-b+sqrt(d))/(2*a)) << ' ' << sqrt((-b-sqrt(d))/(2*a));
+    }
+}
 ///problem 7
 ///problem 8
 int octal2Dec(const int& octalNumber){
