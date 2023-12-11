@@ -35,7 +35,15 @@ void main6()
         cout << sqrt((-b+sqrt(d))/(2*a)) << ' ' << sqrt((-b-sqrt(d))/(2*a));
     }
 }
-///problem 7
+void solveEquation(double a, double b, double c,
+double d, double e, double f, double& x, double&
+y, bool& isSolvable){
+    double d = a*d-b*c;
+    if(!d) cout << "The equation has no solution.";
+    else{
+        cout << ((e*d-b*f)/d) << ' ' << ((a*f-e*c)/d);
+    }
+}
 ///problem 8
 int octal2Dec(const int& octalNumber){
     int oct = octalNumber;
