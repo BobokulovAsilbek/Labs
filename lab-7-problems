@@ -44,7 +44,16 @@ y, bool& isSolvable){
         cout << ((e*d-b*f)/d) << ' ' << ((a*f-e*c)/d);
     }
 }
-///problem 8
+bool areVectorsOrthogonal(double& x1, double& y1,
+double& x2, double& y2, double& x3, double& y3,
+double& x4, double& y4)
+{
+    double a1 = x2 - x1;
+    double a2 = x4 - x3;
+    double b1 = b2 - b1;
+    double b2 = b4 - b3;
+    return !(a1*b1+a2*b2);
+}
 int octal2Dec(const int& octalNumber){
     int oct = octalNumber;
     int cnt = 1, sum = 0;
