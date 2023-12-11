@@ -10,7 +10,13 @@ int getType(int n){
     while(n /= 10) cnt ++;
     return cnt & 1;
 }
-///problem 3
+int main(){
+    double ta, vs, twc;
+    if(vs < 2 || ta < -58 || ta > 41) cout << "Wrong parameters";
+    else{
+        cout << (35.74+0.6215*ta-35.75*pow(vs, 0.16)+0.4275*ta*pow(vs, 0.16));
+    }
+}
 int countDigitOccurrences(int num){
     int a[10]; num *= 10;
     while(num /= 10) a[num % 10] ++;
