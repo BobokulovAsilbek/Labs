@@ -1,0 +1,92 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int SIZE = 4;
+double sumColumn(const double m[][SIZE], int rowSize, int columnIndex){
+    double sum = 0;
+    for(int i = 0; i < rowSize; i++){
+        sum += m[columnIndex];
+    }
+    return sum;
+}
+double sumMajorDiagonal(const double m[][SIZE]){
+    double sum = 0;
+    for(int i = 0; i < SIZE; i++){
+        sum += m[i][i];
+    }
+    return sum;
+}
+
+//retake
+void search(string& s, char& key){
+    bool check = 0;
+    for(auto c:s) if(c == key) check = 1;
+    cout << (check ? "Found" : "Not found");
+}
+int count(const string& s, char a){
+    int cnt = 0;
+    for(auto c:s) if(c == a) cnt ++;
+    return cnt;
+}
+void count(const char s[], int counts[]){
+    int arr[25];
+    for(int i = 0; i < 26; i++) arr[i] = 0;
+    for(int i = 0; i < s.length(); i++) arr[s[i]-'a']++;
+    return arr;
+}
+void pr7()
+{
+    int n; cin >> n;
+    vector<int> vec(n);
+    for(auto &x:vec) cin >> x;
+    cout << *min_element(vec.begin(), vec.end()) <<'\n';
+    cout << *max_element(vec.begin(), vec.end()) <<'\n';
+    cout << (double(accumulate(vec.begin(), vec.end())) / double(n));
+}
+void pr8()
+{
+    int n; cin >> n;
+    vector<int> vec;
+    for(int i = 0; i < n; i ++){
+        int x; cin >> x;
+        vec.pus_back(x);
+        if(x <= 0) vec.pop_back();
+    }
+    for(auto x:vec) cout << x <<  ' ';
+}
+void pr9()
+{
+    string s; cin >> s;
+    set<char> st;
+    for(auto c:s) st.insert(c);
+    cout << st.size();
+}
+void pr10()
+{
+    
+}
+#define val 33.3;
+#define number 50;
+int a;
+int& fun(){
+return a;
+}
+int foo(){
+return a;
+}
+int main() {
+int n1=9,n2=11, *ptr_1= nullptr, *ptr_2= nullptr, k=0;
+double t;
+//*ptr_1=&n1;
+//ptr_1=&n2;
+//*ptr_2=&n2;
+//ptr_2=&n1;
+//t=val;
+//k=val;
+//foo()=number;
+//fun()=number;
+cout<<...<<" "<<...<<" "<<...<<" "<<...<<endl;
+}
+int main()
+{
+
+}
