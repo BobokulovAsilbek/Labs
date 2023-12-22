@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int SIZE = 4;
+/*
 double sumColumn(const double m[][SIZE], int rowSize, int columnIndex){
     double sum = 0;
     for(int i = 0; i < rowSize; i++){
@@ -8,6 +9,7 @@ double sumColumn(const double m[][SIZE], int rowSize, int columnIndex){
     }
     return sum;
 }
+*/
 double sumMajorDiagonal(const double m[][SIZE]){
     double sum = 0;
     for(int i = 0; i < SIZE; i++){
@@ -15,8 +17,19 @@ double sumMajorDiagonal(const double m[][SIZE]){
     }
     return sum;
 }
-
-//retake
+const int N = 4;
+void multiplyMatrix(const double a[][N],
+const double b[][N], double c[][N]){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
+            int sum = 0;
+            for(int k = 0; k < N; k++){
+                sum += a[i][k]*b[k][j];
+            }
+            c[i][j] = sum;
+        }
+    }
+}
 void search(string& s, char& key){
     bool check = 0;
     for(auto c:s) if(c == key) check = 1;
@@ -27,10 +40,10 @@ int count(const string& s, char a){
     for(auto c:s) if(c == a) cnt ++;
     return cnt;
 }
-void count(const char s[], int counts[]){
-    int arr[25];
+vector<int> count(const char s[], int counts[]){
+    vector<int> arr(25);
     for(int i = 0; i < 26; i++) arr[i] = 0;
-    for(int i = 0; i < s.length(); i++) arr[s[i]-'a']++;
+    //for(int i = 0; i < s.size(); i++) arr[s[i]-'a']++;
     return arr;
 }
 void pr7()
@@ -40,7 +53,7 @@ void pr7()
     for(auto &x:vec) cin >> x;
     cout << *min_element(vec.begin(), vec.end()) <<'\n';
     cout << *max_element(vec.begin(), vec.end()) <<'\n';
-    cout << (double(accumulate(vec.begin(), vec.end())) / double(n));
+    cout << (double(accumulate(vec.begin(), vec.end(), 0)) / double(n));
 }
 void pr8()
 {
@@ -48,7 +61,7 @@ void pr8()
     vector<int> vec;
     for(int i = 0; i < n; i ++){
         int x; cin >> x;
-        vec.pus_back(x);
+        vec.push_back(x);
         if(x <= 0) vec.pop_back();
     }
     for(auto x:vec) cout << x <<  ' ';
@@ -60,9 +73,10 @@ void pr9()
     for(auto c:s) st.insert(c);
     cout << st.size();
 }
+/*
 void pr10()
 {
-    
+
 }
 #define val 33.3;
 #define number 50;
@@ -73,6 +87,7 @@ return a;
 int foo(){
 return a;
 }
+/*
 int main() {
 int n1=9,n2=11, *ptr_1= nullptr, *ptr_2= nullptr, k=0;
 double t;
@@ -84,9 +99,121 @@ double t;
 //k=val;
 //foo()=number;
 //fun()=number;
-cout<<...<<" "<<...<<" "<<...<<" "<<...<<endl;
+//cout<<...<<" "<<...<<" "<<...<<" "<<...<<endl;
+}
+*/
+void pr12()
+{
+    srand(time(0));
+    int arr[10];
+    for(int i = 0; i < 10; i++){
+        arr[i] = rand()%100;
+    }
+    int *ptr = arr;
+    for(int i = 0; i < 10; i++)
+    cout << &(ptr[i]) << '\n';
+}
+void pr13()
+{
+    int n; cin >> n;
+    vector<int> vec;
+    for(int &x:vec) cin >> x;
+    int mx = vec[0];
+    for(auto x:vec) mx = max(mx, x);
+    cout << mx;
+}
+int* countDigits(const int& numr){
+    for(int i = 0; i < 10; i++){
+        int t = numr, cnt = 0;
+        while(t){
+            if(t % 10 == i) cnt ++;
+            t /= 10;
+        }
+        cout << i << " number occurance is: " << cnt << '\n';
+    }
+}
+int cstrLength(char* c){
+    return strlen(c);
+
+}
+void factorial(int n, int *fact){
+    *fact = 1;
+    for(int i = 1; i <= n; i++) *fact = (*fact) * i;
+    *fact;
+    /*
+    int main ni ichida
+    int n = 5, fact;
+    factorial(n, &fact);
+    cout << fact;
+    */
+}
+/*
+char to_lower(const char s){
+    char arr[strlen(s)];
+    for(int i = 0; i < strlen(s); i++){ if(s[i] < 'a') arr[i] = s[i] + 32; else arr[i] = s[i]; }
+    return arr;
+}
+void countChar(const char* str, int& vowelCount, int& consonantCount){
+    for(int i = 0; i < strlen(*str); i++){
+        char v = (*str)[i];
+        if(v == 'a' || v == 'o' || v == 'u' || v == 'e') consonantCount += 1;
+        else vowelCount += 1;
+    }
+    //int mainni ichida
+    //char str[] = "Happy New Year";
+    //to_lower(str);
+    //int vc = 0, cc = 0;
+    //countChar(&str, vc, cc);
+    //cout << vc << ' ' << cc;
+
+}
+*/
+void pr19()
+{
+    int sum = 0;
+    int n; cin >> n;
+    for(int i = 0; i < n; ++ i){
+        string s; cin >> s;
+        if(s == "x++" || s == "++x") sum ++;
+        else sum --;
+    }
+    cout << sum;
+}
+string ten_to_rum(int number){
+    int num[] = {1,4,5,9,10,40,50,90,100,400,500,900,1000};
+    string sym[] = {"I","IV","V","IX","X","XL","L","XC","C","CD","D","CM","M"};
+    string ans = "";
+    int i=12;
+    while(number>0)
+    {
+      int div = number/num[i];
+      number = number%num[i];
+      while(div--)
+      {
+        ans += sym[i];
+      }
+      i--;
+    }
+    return ans;
+}
+void pr20()
+{
+    string s; cin >> s;
+    for(int i = 1; i < 1001; i++){
+        if(ten_to_rum(i) == s) cout << i;
+    }
+}
+void pr21(){
+    int mid = 0;
+    string s; cin >> s;
+    for(int i = 0; i < s.size(); i++){
+        if(int(s[i])<96) mid++;
+    }
+    if(mid>s.size()-mid) transform(s.begin(), s.end(), s.begin(), ::toupper);
+    else transform(s.begin(), s.end(), s.begin(), ::tolower);
+    cout << s;
 }
 int main()
 {
-
+    pr20();
 }
