@@ -1,0 +1,144 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+/*
+void pr1(){
+    vector<int> vec = {2, 3, 1, 4};
+    for(auto it = vec.begin(); it != vec.end(); it++) cout << *it << ' ';
+}
+void pr2()
+{
+    vector<int> vec; int n;
+    while(cin >> n) vec.push_back(n);
+    cout << vec.front() << ' ' << vec.back();
+}
+void pr3()
+{
+    vector<int> vec;
+    //iota(all(vec), 1);
+    vec.assign(8, 1);
+    if(!vec.empty()){
+        vec.erase(vec.begin() + 3);
+        vec.erase(vec.begin() + 0, vec.begin() + 2);
+    }
+}
+void pr4()
+{
+    int n; cin >> n;
+    vector<vector<double>> vec;
+    for(int i = 0; i < n; i++){
+        vector<double> arr; arr.assign(n, 0);
+        vec.push_back(arr);
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            double x; cin >> x;
+            vec[i][j] = x;
+        }
+    }
+    for(auto y:vec){ for(auto x:y) cout << x << ' '; cout << '\n'; }
+}
+void pr5()
+{
+    vector<double>
+    ls1 = {3.3,4.5,6.7},
+    ls2 = {1,2,3},
+    ls3 = {8,9.5,10.3}, vec;
+    vec.insert(vec.end(), ls3.begin(), ls3.end());
+    vec.insert(vec.end(), ls1.begin(), ls1.end());
+    vec.insert(vec.end(), ls2.begin(), ls2.end());
+    for(auto x:vec) cout << x << ' ';
+}
+void pr6()
+{
+    forward_list<int> flist = {1, 2, 3, 4, 5, 6, 7, 8};
+    flist.erase_after(flist.begin());
+    for (auto i = flist.begin(); i!= flist.end(); ++i)
+      cout << *i << ' '; cout << '\n';
+    flist.push_front(0);
+    for (auto i = flist.begin(); i!= flist.end(); ++i)
+      cout << *i << ' '; cout << '\n';
+    flist.emplace_front(-1);
+    for (auto i = flist.begin(); i!= flist.end(); ++i)
+      cout << *i << ' '; cout << '\n';
+    flist.pop_front();
+    for (auto i = flist.begin(); i!= flist.end(); ++i)
+      cout << *i << ' '; cout << '\n';
+    flist.insert_after(flist.begin(), 9);
+    for (auto i = flist.begin(); i!= flist.end(); ++i)
+      cout << *i << ' '; cout << '\n';
+    flist.emplace_after(flist.begin(), 10);
+    for (auto i = flist.begin(); i!= flist.end(); ++i)
+      cout << *i << ' '; cout << '\n';
+}
+void pr7()
+{
+
+    deque<int> deq;
+    deq.push_back(5); deq.push_front(7);
+    deq.push_back(10); deq.push_front(20);
+    for(auto x:deq) cout << x << ' '; cout << '\n';
+    cout << deq.size() << '\n' << deq.at(2) << '\n' << deq.front() << '\n' << deq.back();
+    deq.pop_back(); deq.pop_front(); cout << '\n';
+    for(auto x:deq) cout << x << ' ';
+}
+void pr8()
+{
+    int n, cnt = 0, ans = 0; cin >> n;
+    int o1 = 0, o2 = 0, z1 = 0, z2 = 0;
+    deque<int> students, sandwiches;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x == 0) z1 ++; else o1 ++;
+        students.push_back(x);
+    }
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x == 0) z2 ++; else o2 ++;
+        sandwiches.push_back(x);
+    }
+    while((ans < n) && !(students.empty())){
+        if(students.at(0) == sandwiches.at(0)){
+            if(students.at(0) == 1){ o1 --; o2 --; }
+            else{ z1 --; z2 --; }
+            students.pop_front();
+            sandwiches.pop_front();
+            cnt ++;
+            ans = 0;
+        }
+        else{
+            students.push_back(students.front());
+            students.pop_front();
+            ans ++;
+        }
+    }
+    cout << n - cnt;
+}
+void pr9()
+{
+    int n; cin >> n;
+    vector<int> vec(n); for(auto &x:vec) cin >> x;
+    int val; cin >> val; for(int i = 0; i < n; i++) if(vec[i] == val) vec[i] = INT_MAX;
+    sort(all(vec)); for(int i = n - 1; i >= 0; i--) if(vec[i] == INT_MAX) vec[i] = -1;
+    for(auto x:vec) cout << x << ' ';
+}
+bool get(string s){
+    for(int i = 0; i < s.size(); i++)
+        if(s[i] >= '0' && s[i] <= '9') return 1;
+    return 0;
+}
+void cleanNumbers(vector<string> &vec){
+    for(int i = 0; i < vec.size(); i++){
+        if(get(vec[i])){
+            vec.erase(vec.begin() + i);
+        }
+    }
+    if(get(vec[vec.size()-1])) vec.pop_back();
+}
+void pr10(){
+    int n; cin >> n;
+    vector<string> vec(n); for(auto &x:vec) cin >> x;
+    cleanNumbers(vec);
+    for(auto x:vec) cout << x << ' '; cout << '\n';
+}
+*/
