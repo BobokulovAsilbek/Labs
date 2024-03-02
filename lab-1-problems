@@ -1,0 +1,104 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Timer{
+public:
+    int h, m, s;
+    Timer(int h, int m, int s){
+        this->h = h;
+        this->m = m;
+        this->s = s;
+    }
+    void calc(){
+        m += (s / 60); s %= 60;
+        h += (m / 60); m %= 60;
+        h %= 24;
+    }
+    void display(){
+        cout << h << ':' << m << ':' << s;
+    }
+};
+int main()
+{
+    int h, m, s; cin >> h >> m >> s;
+    Timer t(h, m, s);
+    t.calc();
+    t.display();
+}
+
+#include<bits/stdc++.h>
+using namespace std;
+class Student{
+private:
+    string name, groupName;
+    long int id;
+public:
+    Student(string a, long int b, string c){
+        this->name = a;
+        this->id = b;
+        this->groupName = c;
+    }
+    string getGroupName(){
+        return groupName;
+    }
+};
+void print(vector<Student> vec){
+    map<string, int> mp;
+    set<pair<string, int>> st;
+    for(auto x:vec) mp[x.getGroupName()] ++;
+    for(auto x:mp) st.insert({x.first, x.second});
+    for(auto x:st) cout << x.first << ':' << x.second << '\n';
+}
+int main()
+{
+    int n; cin >> n;
+    vector<Student> vec;
+    for(int i = 0; i < n; i++){
+        string name, groupName; long int id;
+        cin >> name >> id >> groupName;
+        vec.emplace_back(name, id, groupName);
+    }
+    print(vec);
+}
+
+
+#include<bits/stdc++.h>
+using namespace std;
+class Animal{
+public:
+    int energy = 50;
+    string name;
+    Animal(string name){
+        this->name = name;
+    }
+    void sleep(){
+        cout << "I\'m sleeping\n";
+        energy ++;
+    }
+    void eat(){
+        cout << "I\'m eating\n";
+        energy ++;
+    }
+    void bark(){
+        cout << "Bark!\n";
+        energy --;
+    }
+    void run(){
+        cout << "Running!\n";
+        energy -= 3;
+    }
+    int getEnergy(){
+        return energy;
+    }
+};
+int main()
+{
+    Animal dog1("Max");
+    for(int i=4;i<9;i++){
+        dog1.sleep();
+        dog1.run();
+    }
+    dog1.eat();
+    dog1.bark();
+    cout<<dog1.getEnergy()<<endl;
+return 0;
+}
